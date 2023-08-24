@@ -1,0 +1,2 @@
+# Generalized Sequential Pattern Algorithm
+ The GSP algorithm is used for mining frequent sequential patterns from sequential transactional databases. It is an extension of the Apriori algorithm for frequent itemset mining to sequential data.  A sequential pattern consists of items/events ordered by transaction time or sequence ID. The goal is to find all patterns that exceed a minimum support threshold.
