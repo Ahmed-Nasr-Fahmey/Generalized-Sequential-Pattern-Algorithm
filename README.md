@@ -1,20 +1,29 @@
 # Generalized Sequential Pattern Algorithm
- The GSP algorithm is used for mining frequent sequential patterns from sequential transactional databases. It is an extension of the Apriori algorithm for frequent itemset mining to sequential data.
 
-A sequential pattern consists of items/events ordered by transaction time or sequence ID. The goal is to find all patterns that exceed a minimum support threshold.
+The Generalized Sequential Pattern (GSP) algorithm is utilized for mining frequent sequential patterns from sequential transactional databases. It extends the Apriori algorithm, which is used for mining frequent itemsets, to sequential data.
 
-The key steps of the GSP algorithm are:
+A sequential pattern is composed of items or events that are ordered by transaction time or sequence ID. The primary objective is to discover all patterns that surpass a specified minimum support threshold.
 
-Scan the database to find singleton itemsets that exceed the min sup threshold.
+## Algorithm Overview
 
-Generate candidate 2-sequences by joining frequent 1-sequences using an Apriori join.
+The GSP algorithm involves several key steps:
 
-Scan the database and count support for candidates to determine frequent 2-sequences.
+1. **Scan the Database**: Scan the database to identify singleton itemsets that exceed the minimum support threshold.
 
-Repeat steps 2-3 to generate candidates of length k by joining frequent (k-1)-sequences, scan database to find frequent k-sequences.
+2. **Generate Candidate 2-Sequences**: Generate candidate 2-sequences by joining frequent 1-sequences using an Apriori join.
 
-Terminate when no further candidates are generated or database is exhausted.
+3. **Count Support for Candidates**: Scan the database to count support for the candidate 2-sequences and identify frequent 2-sequences.
 
-To reduce search space, pruning is done by avoiding generation of supersets of infrequent sequences. joins are done level-wise in a breadth-first manner to ensure completeness.
+4. **Iterative Process**: Repeat the process of generating candidates and counting support for sequences of length k by joining frequent (k-1)-sequences, and scanning the database to find frequent k-sequences.
 
-The output is a set of all qualified frequent sequences ordered by occurrence times in transactions along with their support count. This helps discover useful sequential patterns in fields like market basket analysis, web logs and bioinformatics.
+5. **Termination**: Terminate the process when no further candidates are generated or when the database is exhausted.
+
+The GSP algorithm utilizes pruning techniques to reduce the search space. It avoids generating supersets of infrequent sequences. The algorithm performs joins level-wise in a breadth-first manner to ensure completeness.
+
+## Benefits
+
+- **Useful Patterns Discovery**: GSP helps discover useful sequential patterns in various fields such as market basket analysis, web logs, and bioinformatics.
+
+- **Support Count**: The algorithm provides support counts along with the frequent sequences, which aids in understanding the significance of discovered patterns.
+
+By applying the GSP algorithm, you can uncover meaningful insights from sequential transactional data, making it valuable for uncovering hidden trends and patterns.
